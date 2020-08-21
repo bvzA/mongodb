@@ -1,16 +1,11 @@
 import express from 'express'
 import dbconn from './db/conection.js'
+import userHandler from './handler/user.js'
 
 const app = express()
 app.use(express.json())
 
-app.get('/', (req, res) => {
-    res.send('<h1>Hello Fucking World</h1>')
-})
-
-app.get('/api/movies', (req, res) => {
-    res.send(movies)
-})
+app.use('/user', userHandler)
 
 dbconn()
 
